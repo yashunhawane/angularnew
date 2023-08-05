@@ -1,0 +1,26 @@
+<nav #navbar class="navbar active">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <a href="#" onClick="return false;" class="navbar-toggle collapsed"
+          (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-expanded="false">
+          </a> -->
+          <a target="_blank" class="mobile-downbtn" href="https://play.google.com/store/apps/details?id=com.upekkhatechnovations.kya">
+            <button mat-raised-button class="down-btn-cls">
+              <img src="assets/images/androidAppIcon.png" height="17"> Download</button></a>
+        <a href="#" onClick="return false;" class="bars" (click)="mobileMenuSidebarOpen($event,'overlay-open')"></a>
+        <a class="navbar-brand" routerLink='/'>
+          <img src="assets/images/White_Logo.png" height="60px" alt="" />
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" [ngClass]="isNavbarCollapsed ? '' : ''">
+        <ul class="nav navbar-nav navbar-right">    
+          <li class="nav-item user_profile">
+            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.upekkhatechnovations.kya">
+            <button mat-raised-button class="down-btn-cls desktop-btn">
+              <img src="assets/images/androidAppIcon.png" height="17"> Download</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
