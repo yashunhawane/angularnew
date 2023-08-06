@@ -156,7 +156,7 @@ export class HomeComponent {
   getArticleData(id){
     //debugger
     this.homeService.getArticleData(id).subscribe((res) => {
-      debugger
+      //debugger
       if (res['oError']['nErCd'] === 0) {
         this.articleTitle = res['oResponseData']['oShtNws']['sHdeTxt'] !== null ? res['oResponseData']['oShtNws']['sHdeTxt'] : '';
         this.articleData = res['oResponseData'];
