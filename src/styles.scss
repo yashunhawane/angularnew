@@ -506,3 +506,14 @@ $theme-orange-menu-list-submenu: rgba(0, 0, 0, 0);
     }
   }
 }
+.slick-prev{
+  left: 0px !important;
+  z-index: 99999;
+}
+.slick-next {
+  right: 7px !important;
+  z-index: 99999;
+}
+.slick-prev:before, .slick-next:before{
+  font-size: 26px !important;
+}

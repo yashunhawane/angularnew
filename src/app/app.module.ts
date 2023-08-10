@@ -10,8 +10,7 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { HomeComponent } from './home/home.component';
 import { FrontHeaderComponent } from './front-header/front-header.component';
 import { FrontFooterComponent } from './front-footer/front-footer.component';
-import { IvyCarouselModule } from 'angular-responsive-carousel2';
-//import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 @NgModule({
@@ -31,7 +30,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel2';
       debug: true,
     }),
     ShareIconsModule,
-    IvyCarouselModule
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

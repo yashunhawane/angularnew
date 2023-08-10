@@ -50,16 +50,36 @@ export class HomeComponent {
     tags: 'hussein Abd Elaziz',
   };
   shareLinks: { title: string; link: string }[] = [];
-  constructor(public homeService: HomeService,private DomSan: DomSanitizer, private router: Router, private meta: Meta, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar,private deviceService: DeviceDetectorService) 
-  {
-    //this.epicFunction();  
-   
+  slides = [
+    { img: 'https://via.placeholder.com/600.png/09f/fff' },
+    { img: 'https://via.placeholder.com/600.png/021/fff' },
+    { img: 'https://via.placeholder.com/600.png/321/fff' },
+    { img: 'https://via.placeholder.com/600.png/422/fff' },
+    { img: 'https://via.placeholder.com/600.png/654/fff' },
+  ];
+  slideConfig = { slidesToShow: 1, slidesToScroll: 1 };
+  addSlide() {
+    this.slides.push({ img: 'http://placehold.it/350x150/777777' });
   }
+  removeSlide() {
+    this.slides.length = this.slides.length - 1;
+  }
+  slickInit(e: any) {
+    console.log('slick initialized');
+  }
+  breakpoint(e: any) {
+    console.log('breakpoint');
+  }
+  afterChange(e: any) {
+    console.log('afterChange');
+  }
+  beforeChange(e: any) {
+    console.log('beforeChange');
+  }
+  constructor(public homeService: HomeService,private DomSan: DomSanitizer, private router: Router, private meta: Meta, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar,private deviceService: DeviceDetectorService) 
+  { }
   ngOnInit() {
-    //this.siteurl = encodeURIComponent(environment.siteURL+this.router.url);
-    this.siteurl = environment.siteURL+this.router.url;  
-   // this.siteurl = urlstr.replace(/&/g, "&amp;");
-    //this.siteurl = 'http://3.89.222.134/?nOwrCd=0&amp;OwrTp=0&amp;nLdgCd=3259&amp;nType=1&amp;nCtCd=0';
+    this.siteurl = environment.siteURL+this.router.url;
     this.activatedRoute.queryParams.subscribe((params) => {
       this.newsId = params['nLdgCd'];
       this.getArticleData(params['nLdgCd']);
@@ -71,65 +91,6 @@ export class HomeComponent {
       });
     });
 
-//     const link = encodeURI('https://openjavascript.info');
-// const msg = encodeURIComponent('Hey, I found this article');
-// const title = encodeURIComponent('Article or Post Title Here');
-// const fb = document.querySelector('.facebook');
-// fb.href = `https://www.facebook.com/share.php?u=${link}`;
-// const twitter = document.querySelector('.twitter');
-// twitter.href = `http://twitter.com/share?&url=${link}&text=${msg}&hashtags=javascript,programming`;
-// const linkedIn = document.querySelector('.linkedin');
-// linkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${link}`;
-// const reddit = document.querySelector('.reddit');
-// reddit.href = `http://www.reddit.com/submit?url=${link}&title=${title}`;
-// const whatsapp = document.querySelector('.whatsapp');
-// whatsapp.href = `https://api.whatsapp.com/send?text=${msg}: ${link}`;
-// const telegram = document.querySelector('.telegram');
-// telegram.href = `https://telegram.me/share/url?url=${link}&text=${msg}`;
-  }
-  shareOnWhatsAppaa() {
-  //  debugger;
-  //  let urlstr = 'http://3.89.222.134/?nOwrCd=0&nOwrTp=0&nLdgCd=3822&nType=1&nCtCd=0';
-    //let newurl = urlstr.replace(/&amp;/g,'&');
-   // let newurl =urlstr.replace(/&/g, "&amp;");
-   // const articleUrl = encodeURI('http://3.89.222.134/?nOwrCd=0&nOwrTp=0&nLdgCd=3822&nType=1&nCtCd=0').replace(/&amp;/g,'&');
-   // const articleUrlaaaa = encodeURIComponent('http://3.89.222.134/?nOwrCd=0&nOwrTp=0&nLdgCd=3822&nType=1&nCtCd=0');
-   // console.log(newurl);
-    //console.log(articleUrlaaaa);
-  //  const shareUrl = `https://web.whatsapp.com/send?text=${encodeURIComponent(articleUrl)}`;
-   // window.location.href = this.siteurl;
-    // Specify the article URL and image URL
-    
-   // const imageUrl = 'https://llimagestore2703.blob.core.windows.net/abcmedia/1ff54b48-e90a-487e-8d1c-bcb9f95a6f9904.jpg';
-    // Generate the WhatsApp share link
-    //const shareUrl = `whatsapp://send?text=${encodeURIComponent(articleUrl)}&image=${encodeURIComponent(imageUrl)}&src=${encodeURIComponent(imageUrl)}`;
-    //const shareUrl = `whatsapp://send?text=${encodeURIComponent(articleUrl)}&image=${encodeURIComponent(imageUrl)}`;
-    //const shareUrl = `https://wa.me/?text=${encodeURIComponent(articleUrl)}&image=${encodeURIComponent(imageUrl)}`;
-    
-//    const shareUrl = `https://api.whatsapp.com/send?text=${imageUrl}: ${articleUrl}`;
-    //this.testVar= this.DomSan.bypassSecurityTrustHtml(shareUrl);
-    //'https://wa.me?text=https://kya.news/news/assets/images/White_Logo.png'
-    // Open the WhatsApp share link
-    //window.open(this.testVar.changingThisBreaksApplicationSecurity);
-  //  window.open(shareUrl);
-    //window.location.href = testVar;
-
-     // Encode the share text and create the share link
-
-
-  // Open the share link in a new window
-  //window.open(shareLink);
-  }
-  epicFunction() {
-    console.log('hello `Home` component');
-    this.deviceInfo = this.deviceService.getDeviceInfo();
-    const isMobile = this.deviceService.isMobile();
-    const isTablet = this.deviceService.isTablet();
-    const isDesktopDevice = this.deviceService.isDesktop();
-    console.log(this.deviceInfo);
-    console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
-    console.log(isTablet);  // returns if the device us a tablet (iPad etc)
-    console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
   }
   copyText(val: string) {
     this.isShowBage=true;
@@ -144,17 +105,10 @@ export class HomeComponent {
     selBox.select();
     document.execCommand("copy");
     document.body.removeChild(selBox);
-    // this.snackBar.open('Copied!', '', {
-    //   duration: 2000,
-    //   //verticalPosition: ,
-    //   //horizontalPosition: placementAlign,
-    //   //panelClass: colorName,
-    // });
     setTimeout(() => {this.isShowBage=false;},2000);
     
   }
   getArticleData(id){
-    //debugger
     this.homeService.getArticleData(id).subscribe((res) => {
       //debugger
       if (res['oError']['nErCd'] === 0) {
@@ -165,15 +119,12 @@ export class HomeComponent {
           //this.articleImage=res['oResponseData']['oShtNws']['oMediaArr'][0]['sURL'];          
           this.articleImage=res['oResponseData']['oShtNws']['oMediaArr'];
           res['oResponseData']['oShtNws']['oMediaArr'].forEach((value) => {
-            this.articleMultiImages.push({path: value.sURL})
+            //this.articleMultiImages.push({path: value.sURL})
+            this.articleMultiImages.push({img: value.sURL})
             })
-          //   images = [
-          //     {path: 'PATH_TO_IMAGE'},
-          //     ...
-          // ]
         }
         
-        this.artSingleimg = this.articleMultiImages[0]['path'];
+        this.artSingleimg = this.articleMultiImages[0]['img'];
         if(res['oResponseData']['oShtNws']['oMediaArr'][0]['sVURL'] !== ''){
           this.articleVideoURL=res['oResponseData']['oShtNws']['oMediaArr'][0]['sVURL'];
         }

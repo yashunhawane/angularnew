@@ -19,18 +19,26 @@
                     </div> -->
                   </div> 
                   <div class="col-md-6">
-                    <!-- <a href="https://web.whatsapp.com/send?text=http://3.89.222.134/?nOwrCd=0&nOwrTp=0&nLdgCd=3822&nType=1&nCtCd=0" data-action="share/whatsapp/share">Share via Whatsapp web</a>
-                    <button (click)="shareOnWhatsAppaa()">Share WhatsApp</button> -->
                     <div class="course-card course-card-blog">
                       <div class="course-card-image">
-                        <!-- <img src="{{artSingleimg}}" /> -->
                         <div *ngIf="articleVideoURL !== ''" class="video-wrapper">
                           <video src="{{articleVideoURL}}" type="video/webm" controls>
                           </video>
                         </div>
+                        <ngx-slick-carousel class="carousel"
+                          #slickModal="slick-carousel"
+                          [config]="slideConfig" 
+                          (init)="slickInit($event)"
+                          (breakpoint)="breakpoint($event)"
+                          (afterChange)="afterChange($event)"
+                          (beforeChange)="beforeChange($event)">
+                        <div ngxSlickItem *ngFor="let slide of articleMultiImages" class="slide">
+                        <img src="{{ slide.img }}" alt="">
+                        </div>
+                        </ngx-slick-carousel>
                         <!-- <video *ngIf="articleVideoURL !== ''" src="{{articleVideoURL}}" type="video/webm" controls ></video> -->
-                          <carousel [autoplay]="false" *ngIf="articleVideoURL === ''" [images]="articleMultiImages" [cellsToShow]="1" [height]="400" [arrows]="articleMultiImages.length > 1 ? true : false">
-                        </carousel>
+                          <!-- <carousel [autoplay]="false" *ngIf="articleVideoURL === ''" [images]="articleMultiImages" [cellsToShow]="1" [height]="400" [arrows]="articleMultiImages.length > 1 ? true : false">
+                        </carousel> -->
                       </div>
                       <div class="blog-table">
                         <div class="post-user mt-3">
@@ -49,10 +57,6 @@
                         <p class="course-card-description">{{articleDescription}}</p>
                         <div class="post-footer">
                         <div class="stats"> 
-                          <!-- <share-buttons [theme]="'modern-dark'"
-                          [include]="['facebook','twitter','linkedin','pinterest','whatsapp','email','copy']"
-                          [show]="5"
-                          [url]="siteurl"/> -->
                           <span matTooltip="Whatsapp" class="whatsup-icon">
                             <a class="link whatsapp" target="_blank">
                               <share-button
