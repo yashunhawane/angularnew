@@ -25,7 +25,7 @@
                           <video src="{{articleVideoURL}}" type="video/webm" controls>
                           </video>
                         </div>
-                        <ngx-slick-carousel class="carousel"
+                        <ngx-slick-carousel *ngIf="articleVideoURL === ''" class="carousel"
                           #slickModal="slick-carousel"
                           [config]="slideConfig" 
                           (init)="slickInit($event)"
