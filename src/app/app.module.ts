@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FrontHeaderComponent } from './front-header/front-header.component';
 import { FrontFooterComponent } from './front-footer/front-footer.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { AdsenseModule } from 'ng2-adsense';
 
 
 @NgModule({
@@ -30,7 +31,11 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
       debug: true,
     }),
     ShareIconsModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-7640562161899788',
+      adSlot: 7259870550,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

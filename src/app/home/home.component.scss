@@ -162,16 +162,67 @@ mat-paginator.mat-mdc-paginator {
      padding: 0px 0px 0px 0px;
     }
  }
- .ads-section .course-card {
-   display: inline-block;
-   position: relative;
-   width: 100%;
-   margin-bottom: 30px;
-   border-radius: 6px;
-   color: rgba(0, 0, 0, 0.87);
-   background: #fff;
-   box-shadow: none;
- }
+//  .ads-section .course-card {
+//    display: inline-block;
+//    position: relative;
+//    width: 100%;
+//    margin-bottom: 30px;
+//    border-radius: 6px;
+//    color: rgba(0, 0, 0, 0.87);
+//    background: #fff;
+//    box-shadow: none;
+//  }
+.course-card .course-card-image {
+  //width: 70%;
+  
+}
+.course-card.course-card-blog{
+  text-align: center;
+  padding: 10px;
+}
+.course-card-blog .card-content-cls{
+  //width: 57%;
+    padding: 10px;
+    font-size: 19px;
+}
+.down-btn-cls.desktop-btn{
+  background: #fff;
+  /* padding: 8px; */
+  height: 50px;
+  //width: 55%;
+  font-size: 21px;
+  border-radius: var(--mdc-protected-button-container-shape, var(--mdc-shape-small, 4px));
+  box-shadow: var(--mdc-protected-button-container-elevation, 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12));
+  cursor: pointer;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 16px 0px 16px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  min-width: 64px;
+  --mdc-protected-button-container-color: #fff;
+  --mdc-protected-button-label-text-color: #000;
+  border: none;
+  --mat-mdc-button-persistent-ripple-color: #000;
+  --mat-mdc-button-ripple-color: rgba(0, 0, 0, .1);
+  outline: none;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--mdc-typography-button-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
+  user-select: none;
+  font-weight: var(--mdc-typography-button-font-weight, 500);
+  letter-spacing: var(--mdc-typography-button-letter-spacing, .0892857143em);
+  -webkit-text-decoration: var(--mdc-typography-button-text-decoration, none);
+  text-decoration: var(--mdc-typography-button-text-decoration, none);
+  text-transform: var(--mdc-typography-button-text-transform, none);
+  -webkit-appearance: none;
+  overflow: visible;
+  vertical-align: middle;
+  /* background: rgba(0,0,0,0); */
+  }
  
  .home-page-content .post-footer .fa-save, .home-page-content .post-footer .fa-share-square, .home-page-content .post-footer .fa-heart, .home-page-content .post-footer .fa-whatsapp-square{
    font-size: 20px;
@@ -247,6 +298,9 @@ mat-paginator.mat-mdc-paginator {
    .desktop-ad-img{
      display:none !important;
    }
+  //  .desktop-playstore-btn-section{
+  //   display:none !important;
+  //  }
  }
  
  .video-wrapper {
